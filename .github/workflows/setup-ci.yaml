@@ -39,9 +39,9 @@ jobs:
 
     - name: Test Docker image
       run: |
-        docker pull devops-github-actions:latest
+        docker pull katekn/devops-github-actions:latest
         docker run -d --name my-container -p 80:80 devops-github-actions:latest
         sleep 5
-        curl -I localhost:8080
+        curl -I localhost:80
         docker stop my-container
         docker rm my-container
