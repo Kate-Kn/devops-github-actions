@@ -35,6 +35,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+    - name: Tag Docker image
+      run: docker tag devops-github-actions:latest katekn/devops-github-actions:latest
+
     - name: Push Docker image
       run: docker push katekn/devops-github-actions:latest
 
