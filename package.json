@@ -1,0 +1,27 @@
+{
+  "name": "devops-github-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .  --ext .js",
+    "lint-fix": "eslint --fix .  --ext .js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kate-Kn/devops-github-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kate-Kn/devops-github-actions/issues"
+  },
+  "homepage": "https://github.com/Kate-Kn/devops-github-actions#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0"
+  }
+}
