@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
 
     - name: Setup Node.js
@@ -22,20 +23,17 @@ jobs:
     - name: Run lint
       run: npm run lint
 
-    - name: Build Docker image
-      run: docker build -t devops-github-actions .
-
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Tag Docker image
-      run: docker tag devops-github-actions:latest katekn/devops-github-actions:latest
-
-    - name: Push Docker image
-      run: docker push katekn/devops-github-actions:latest
+   - name: Build, Tag and Push Docker image
+      run: |
+         docker build -t devops-github-actions .
+         docker tag devops-github-actions:latest katekn/devops-github-actions:latest
+         docker push katekn/devops-github-actions:latest
 
     - name: Test Docker image
       run: |
